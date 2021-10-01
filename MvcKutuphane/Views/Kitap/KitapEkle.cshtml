@@ -1,0 +1,37 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKITAP
+@{
+    ViewBag.Title = "KitapEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Ekleme Sayfası</h2>
+<form method="post">
+
+    <div>
+        <label>Kitap Adı</label>
+        <input type="text" name="AD" class="form-control" />
+    </div>
+    <div>
+        <label>Kategori</label>
+
+        @Html.DropDownListFor(x => x.KATEGORI, (List<SelectListItem>)ViewBag.Kategori, new { @class = "form-control" })
+        @* @Html.DropDownListFor(x=>x.TBLKATEGORI.AD, ViewBag.deger,new { @class = "form-control" } )*@
+    </div>
+    <div>
+        <label>Yazar</label>
+        @Html.DropDownListFor(x => x.YAZAR, (List<SelectListItem>)ViewBag.Yazar, new { @class = "form-control" }) 
+    </div>
+    <div>
+        <label>Basım yılı</label>
+        <input type="number" name="BASIMYIL" class="form-control" />
+    </div>
+    <div>
+        <label>Yayın Evi</label>
+        <input type="text" name="YAYINEVI" class="form-control" />
+    </div> 
+    <div>
+        <label>Sayfa Sayısı</label>
+        <input type="number" name="SAYFA" class="form-control" />
+    </div>
+    <button class="btn btn-success">Kitap Ekle</button>
+</form>

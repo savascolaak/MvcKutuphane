@@ -1,0 +1,44 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKITAP
+
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Güncelleme Sayfası</h2>
+
+<form method="post">
+
+    <div>
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Yazar</label>
+        @Html.DropDownListFor(x => x.YAZAR, (List<SelectListItem>)ViewBag.Yazar, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Kategori</label>
+        @Html.DropDownListFor(x => x.KATEGORI, (List<SelectListItem>)ViewBag.Kategorii, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label>Basım Yılı</label>
+        @Html.TextBoxFor(x => x.BASIMYIL, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Yayın Evi</label>
+        @Html.TextBoxFor(x => x.YAYINEVI, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Sayfa</label>
+        @Html.TextBoxFor(x => x.SAYFA, new { @class = "form-control" })
+    </div>
+    <br />
+    <br />
+
+    <button class="btn btn-success">Güncelle</button>
+
+
+</form>
+

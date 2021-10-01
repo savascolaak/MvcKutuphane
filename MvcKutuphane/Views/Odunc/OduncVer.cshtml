@@ -1,0 +1,44 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHAREKET
+
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Ödünç Verme Sayfası</h2>
+
+<form method="post">
+
+    <div>
+        <label>Üye</label>
+        @Html.DropDownListFor(x => x.UYE, (List<SelectListItem>)ViewBag.Uye, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Kitap</label>
+
+        @Html.DropDownListFor(x => x.KITAP, (List<SelectListItem>)ViewBag.Kitap, new { @class = "form-control" })
+        @* @Html.DropDownListFor(x=>x.TBLKATEGORI.AD, ViewBag.deger,new { @class = "form-control" } )*@
+    </div>
+    <br />
+    <div>
+        <label>Personel</label>
+        @Html.DropDownListFor(x => x.PERSONEL, (List<SelectListItem>)ViewBag.Personel, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Alış Tarihi</label>
+        <input type="text" name="ALISTARIH" class="form-control" value="@DateTime.Now.ToShortDateString()" readonly />
+    </div>
+    <br />
+    <div>
+        <label>İade Tarihi</label>
+        <input type="text" name="IADETARIH" class="form-control" value="@DateTime.Now.AddDays(7).ToShortDateString()" readonly />
+    </div>
+   
+    <br />
+    <br />
+    <button class="btn btn-success">Kitap Ödünç Ver</button>
+    <input type="hidden" value="False" name="ISLEMDURUM" />
+</form>
+
